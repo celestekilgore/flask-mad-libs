@@ -4,26 +4,24 @@
 
 {% block content %}
 
-<h1 class="pt-4 mb-3 text-center">Madlibs!</h1>
+  <h1 class="pt-4 mb-3 text-center">Madlibs!</h1>
 
-<div class="ms-3 me-3">
-  <form action="/results" class="pb-4">
-    {% for prompt in prompts %}
+  <div class="ms-3 me-3">
+    <form action="/results" class="pb-4">
+      {% for prompt in prompts %}
 
-    <div class="mb-3 row">
-      <label class="col-5 col-form-label text-end">{{prompt }}</label>
+        <div class="mb-3 row">
+          <label class="col-5 col-form-label text-end">{{ prompt }}</label>
+          <div class="col-7">
+            <input name="{{ prompt }}" required aria-label="{{ prompt }}" class="form-control">
+          </div>
+        </div>
 
-      <div class="col-7">
+      {% endfor %}
 
-        <input name="{{ prompt }}" required aria-label="{{ prompt }}" class="form-control">
-      </div>
-    </div>
-
-    {% endfor %}
-
-    <button class="btn btn-primary btn-lg w-100">
-      Make My Story!
-    </button>
-  </form>
+      <button class="btn btn-primary btn-lg w-100">
+        Make My Story!
+      </button>
+    </form>
 
   {% endblock %}
